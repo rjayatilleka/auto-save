@@ -56,7 +56,7 @@ class AutoSaveListener(sublime_plugin.EventListener):
       '''
       Must use this callback for ST2 compatibility
       '''
-      if view.is_dirty() and not view.is_loading():
+      if view.is_dirty() and not view.is_loading() and not view.is_auto_complete_visible():
         if not backup: # Save file
           view.run_command("save")
         else: # Save backup file
